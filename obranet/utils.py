@@ -25,3 +25,16 @@ index_title = "Obranet"
 #     {"name": "og:description", "content": index_description},
 # ]
 # index_meta.extend(_meta)
+
+
+
+# Registre
+
+register_title = "Obranet | Registro"
+# register_description = "Hola, mi nombre es Brais Moure. Soy ingeniero de software, desarrollador freelance full-stack y divulgador."
+
+# register_meta = [
+#     {"name": "og:title", "content": register_title},
+#     {"name": "og:description", "content": register_description},
+# ]
+# register_meta.extend(_meta)
