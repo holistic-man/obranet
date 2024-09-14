@@ -1,5 +1,5 @@
 import reflex as rx
-
+from obranet.routes import Route
 
 
 def create_styled_button(
@@ -49,17 +49,45 @@ def cta():
                 content="Únete hoy a nuestra comunidad de profesionales capacitados y clientes satisfechos."
             ),
             rx.flex(
-                create_styled_button(
-                    hover_style={"background-color": "#1D4ED8"},
-                    bg_color="#2563EB",
-                    href="#sign-up-pro",
-                    content="Regístrate como profesional",
+                # create_styled_button(
+                #     hover_style={"background-color": "#1D4ED8"},
+                #     bg_color="#2563EB",
+                #     href=Route.REGISTER.value,
+                #     content="Regístrate como profesional",
+                # ),
+                # create_styled_button(
+                #     hover_style={"background-color": "#047857"},
+                #     bg_color="#059669",
+                #     href="#find-service",
+                #     content="Encuentre proveedor de servicios",
+                # ),
+                rx.link(
+                    rx.button(
+                        "Registrate como profesional",
+                        padding_x="1.5rem",
+                        padding_y="0.75rem",
+                        font_weight="600",
+                        size="3",
+                        width="100%",
+                        cursor="pointer",
+                        _hover={"background-color": "#1D4ED8"}
+                    ),
+                    href=Route.REGISTER.value,
+                    margin_bottom="1rem",
                 ),
-                create_styled_button(
-                    hover_style={"background-color": "#047857"},
-                    bg_color="#059669",
-                    href="#find-service",
-                    content="Encuentre proveedor de servicios",
+                rx.link(
+                    rx.button(
+                        "Encuentre proveedor de servicios",
+                        padding_x="1.5rem",
+                        padding_y="0.75rem",
+                        font_weight="600",
+                        size="3",
+                        color_scheme="green",
+                        width="100%",
+                        cursor="pointer",
+                        _hover={"background-color": "#047857"}
+                    ),
+                    href="#"
                 ),
                 display="flex",
                 flex_direction=rx.breakpoints(

@@ -16,24 +16,27 @@ def navbar_link(text: str, url: str) -> rx.Component:
 def navbar() -> rx.Component:
     return rx.flex(
         rx.flex(
-            rx.flex(
-                rx.image(
-                    alt="Obranet Logo",
-                    src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/9b19UXt5DfX1HKBUL7bxcG3qTM6G7Nee4zMqyTpfbgTof3UbC/out-0.webp",
-                    height="2.5rem",
-                    margin_right="0.75rem",
-                    width="2.5rem",
-                    border_radius="25%",
+            rx.link(
+                rx.flex(
+                    rx.image(
+                        alt="Obranet Logo",
+                        src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/9b19UXt5DfX1HKBUL7bxcG3qTM6G7Nee4zMqyTpfbgTof3UbC/out-0.webp",
+                        height="2.5rem",
+                        margin_right="0.75rem",
+                        width="2.5rem",
+                        border_radius="25%",
+                    ),
+                    rx.text.span(
+                        "Obranet",
+                        font_weight="600",
+                        color="#2563EB",
+                        font_size="1.25rem",
+                        line_height="1.75rem",
+                    ),
+                    display="flex",
+                    align_items="center",
                 ),
-                rx.text.span(
-                    "Obranet",
-                    font_weight="600",
-                    color="#2563EB",
-                    font_size="1.25rem",
-                    line_height="1.75rem",
-                ),
-                display="flex",
-                align_items="center",
+                href=Route.INDEX.value
             ),
             rx.hstack(
                 navbar_link("Inicio", Route.INDEX.value),
@@ -44,17 +47,20 @@ def navbar() -> rx.Component:
                 display=["none", "none", "flex", "flex", "flex"],
             ),
             rx.hstack(
-                rx.button(
-                    "Ingresar",
-                    size="3",
-                    variant="outline",
-                    display=["none", "none", "flex", "flex", "flex"],
-                    cursor="pointer"
-                ),
-                rx.button(
-                    "Registrate", 
-                    size="3",
-                    cursor="pointer"
+                # rx.button(
+                #     "Ingresar",
+                #     size="3",
+                #     variant="outline",
+                #     display=["none", "none", "flex", "flex", "flex"],
+                #     cursor="pointer"
+                # ),
+                rx.link(
+                    rx.button(
+                        "Registrate", 
+                        size="3",
+                        cursor="pointer"
+                    ),
+                    href=Route.REGISTER.value
                 ),
                 rx.drawer.root(
                     rx.drawer.trigger(
@@ -109,20 +115,28 @@ def navbar() -> rx.Component:
                                     navbar_link("Servicios", "/#"),
                                     navbar_link("Nosotros", "/#"),
                                     navbar_link("Blog", "/#"),
-
-                                    rx.hstack(
-                                        rx.button(
-                                            "Ingresar",
-                                            size="3",
-                                            variant="outline",
-                                            cursor="pointer"
-                                        ),
+                                    
+                                    rx.link(
                                         rx.button(
                                             "Registrate", 
                                             size="3",
                                             cursor="pointer"
                                         ),
+                                        href=Route.REGISTER.value
                                     ),
+                                    # rx.hstack(
+                                    #     # rx.button(
+                                    #     #     "Ingresar",
+                                    #     #     size="3",
+                                    #     #     variant="outline",
+                                    #     #     cursor="pointer"
+                                    #     # ),
+                                    #     # rx.button(
+                                    #     #     "Registrate", 
+                                    #     #     size="3",
+                                    #     #     cursor="pointer"
+                                    #     # ),
+                                    # ),
                                     spacing="5",
                                     align_items="start",
                                     padding_y=styles.EMSize.DEFAULT.value,

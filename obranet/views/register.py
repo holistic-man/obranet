@@ -21,7 +21,7 @@ class FormRegisterState(rx.State):
         self.did_submit = False
         yield
 
-def form_register():
+def form_register(lista=[]):
     return rx.card(
         rx.flex(
             rx.hstack(
@@ -38,7 +38,7 @@ def form_register():
                         weight="bold",
                     ),
                     rx.text(
-                        "Completa el formulario para ofrecer tu servicio",
+                        "Completa el formulario para ofrecer tu trabajo",
                         size="2",
                     ),
                     rx.cond(FormRegisterState.did_submit,FormRegisterState.thank_you,""),
@@ -50,6 +50,30 @@ def form_register():
                 align_items="center",
                 width="100%",
             ),
+            # rx.cond(
+            #     len(list) > 0,
+            #     rx.vstack(
+            #         rx.heading("DATOSOSSSS"),
+            #         rx.foreach(
+            #             list,
+            #             lambda item: rx.responsive_grid(
+            #                 rx.text(
+            #                     src=item["id"],
+            #                 ),
+            #                 rx.text(
+            #                     src=item["name"],
+            #                 ),
+            #                 rx.text(
+            #                     src=item["mail"],
+            #                 ),
+            #                 rx.text(
+            #                     src=item["phone"],
+            #                 ),
+            #             )
+            #         )
+            #     ),
+
+            # ),
             rx.form.root(
                 rx.flex(
                     rx.flex(
@@ -75,18 +99,18 @@ def form_register():
                     rx.flex(
                         form_field(
                             "Celular", 
-                            "Celular",
+                            "+56 9 1234 5678",
                             "tel", 
                             "phone"
                         ),
                         rx.flex(
                             rx.text(
-                                "Oficio",
+                                "A qué te dedicas",
                                 font_size="15px",
                                 weight="medium",
                             ),
                             rx.select.root(
-                                rx.select.trigger(placeholder="Selecciona tu Oficio"),
+                                rx.select.trigger(placeholder="Selecciona a qué te dedicas"),
                                 rx.select.content(
                                     rx.select.item(
                                         "Pintor", 
@@ -105,7 +129,7 @@ def form_register():
                                         value="electricista"
                                     ),
                                     rx.select.item(
-                                        "Otro", 
+                                        "Otro (Detalla en la descripción)", 
                                         value="otro"
                                     ),
                                 ),
@@ -148,9 +172,9 @@ def form_register():
                         as_child=True,
                     ),
 
-                    rx.vstack(
-                        rx.button("Submit", type="submit"),
-                    ),
+                    # rx.vstack(
+                    #     rx.button("Submit", type="submit"),
+                    # ),
                     direction="column",
                     spacing="2",
                     width="100%",
