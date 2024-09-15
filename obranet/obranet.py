@@ -2,7 +2,7 @@ import reflex as rx
 import obranet.styles.styles as styles
 from obranet.pages.index import index
 from obranet.pages.register import register
-
+from obranet.pages.demo import register
 
 app = rx.App(
     stylesheets=styles.STYLESHEETS,

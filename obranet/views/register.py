@@ -1,6 +1,6 @@
 import reflex as rx
 import asyncio
-
+from obranet.api.SupabaseAPI import SupabaseAPI
 from obranet.components.form_field import form_field
 
 class FormRegisterState(rx.State):
@@ -15,11 +15,19 @@ class FormRegisterState(rx.State):
     async def handle_submit(self, form_data: dict):
         """Handle the form submit."""
         self.form_data = form_data
-        self.did_submit = True
-        yield
-        await asyncio.sleep(2)
-        self.did_submit = False
-        yield
+        user_name = form_data.get("name")
+        user_email = form_data.get("email")
+        print(f"ESTE ES EL DATO {user_name}, {user_email}")
+        if user_name and user_email:
+            self.did_submit = True
+            SupabaseAPI.save_user(user_name,user_email)
+            yield
+            await asyncio.sleep(2)
+            self.did_submit = False
+            yield
+
+
+
 
 def form_register(lista=[]):
     return rx.card(
@@ -96,85 +104,11 @@ def form_register(lista=[]):
                             "row",
                         ],
                     ),
-                    rx.flex(
-                        form_field(
-                            "Celular", 
-                            "+56 9 1234 5678",
-                            "tel", 
-                            "phone"
-                        ),
-                        rx.flex(
-                            rx.text(
-                                "A qué te dedicas",
-                                font_size="15px",
-                                weight="medium",
-                            ),
-                            rx.select.root(
-                                rx.select.trigger(placeholder="Selecciona a qué te dedicas"),
-                                rx.select.content(
-                                    rx.select.item(
-                                        "Pintor", 
-                                        value="pintor"
-                                    ),
-                                    rx.select.item(
-                                        "Gasfiter", 
-                                        value="gasfiter"
-                                    ),
-                                    rx.select.item(
-                                        "Jardinero", 
-                                        value="jardinero"
-                                    ),
-                                    rx.select.item(
-                                        "Electricista", 
-                                        value="electricista"
-                                    ),
-                                    rx.select.item(
-                                        "Otro (Detalla en la descripción)", 
-                                        value="otro"
-                                    ),
-                                ),
-                                name="service",
-                                
-                            ),  
-                            direction="column",
-                            justify="center",
-                            spacing="1",
-                            width="100%",
-                        ),
-                        
-                        spacing="3",
-                        flex_direction=[
-                            "column",
-                            "row",
-                            "row",
-                        ],
-                    ),
-                    rx.flex(
-                        rx.text(
-                            "Descripción",
-                            style={
-                                "font-size": "15px",
-                                "font-weight": "500",
-                                "line-height": "35px",
-                            },
-                        ),
-                        rx.text_area(
-                            placeholder="Describe brevemente en qué consiste tu servicio y/o experiencia",
-                            name="description",
-                            resize="vertical",
-                        ),
-                        direction="column",
-                        spacing="1",
-                    ),
-                    
+                
                     rx.form.submit(
                         rx.button("Registrar"),
                         as_child=True,
                     ),
-
-                    # rx.vstack(
-                    #     rx.button("Submit", type="submit"),
-                    # ),
                     direction="column",
                     spacing="2",
                     width="100%",

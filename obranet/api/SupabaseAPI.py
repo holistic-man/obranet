@@ -19,6 +19,8 @@ class SupabaseAPI:
                 self.SUPABASE_URL,self.SUPABASE_KEY
             )
 
+  
+
 
     def lista(self) -> list:
         response = self.supabase.table("prueba").select("*").execute()
@@ -33,3 +35,13 @@ class SupabaseAPI:
         print(list_data)
         
         return list_data
+    
+
+    def save_user(self,name, email):
+        response = (
+            self.supabase.table("prueba")
+            .insert({"name": name, "email": email})
+            .execute()
+        )
+
+        return print(response)
