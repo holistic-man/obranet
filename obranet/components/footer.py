@@ -1,4 +1,5 @@
 import reflex as rx
+from obranet.routes import Route
 
 def footer_item(text: str, href: str) -> rx.Component:
     return rx.link(rx.text(text, size="3"), href=href)
@@ -82,7 +83,7 @@ def footer() -> rx.Component:
                         # ),
                         rx.image(
                             alt="Obranet Logo",
-                            src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/9b19UXt5DfX1HKBUL7bxcG3qTM6G7Nee4zMqyTpfbgTof3UbC/out-0.webp",
+                            src=Route.LOGO_OBRANET.value,
                             height="auto",
                             border_radius="25%",
                             width="2.25rem",
@@ -120,7 +121,7 @@ def footer() -> rx.Component:
             rx.flex(
                 rx.hstack(
                     rx.image(
-                        src="/logo.jpg",
+                        src=Route.LOGO_OBRANET.value,
                         width="2em",
                         height="auto",
                         border_radius="25%",

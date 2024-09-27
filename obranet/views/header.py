@@ -5,7 +5,7 @@ def header_content() -> rx.Component:
         rx.flex(
             rx.box(
                rx.heading(
-                    "Solicita el trabajo deseas para tu casa con los mejores obreros",
+                    "Ofrece y/o encuentra tus servicios con profesionales capacitados",
                     font_weight="700",
                     line_height="1",
                     margin_bottom="1.5rem",

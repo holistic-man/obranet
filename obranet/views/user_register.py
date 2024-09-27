@@ -1,18 +1,8 @@
 import reflex as rx
-from .form import formRegister
-from .state import UserRegistered, FormState
+import asyncio
+from obranet.components.forms.formRegister import formRegister
 
-def user_box(user_register: UserRegistered):
-    return rx.vstack(
-        rx.text(user_register.name),
-        rx.text(user_register.email),
-        rx.text(user_register.phone),
-        rx.text(user_register.service),
-        rx.text(user_register.description)
-    )
-
-
-def pageRegister() -> rx.Component:
+def user_register():
     return rx.card(
         rx.flex(
             rx.hstack(
@@ -32,7 +22,6 @@ def pageRegister() -> rx.Component:
                         "Completa el formulario para ofrecer tu trabajo",
                         size="2",
                     ),
-                    # rx.cond(FormRegisterState.did_submit,FormRegisterState.thank_you,""),
                     spacing="1",
                     height="100%",
                 ),
@@ -41,15 +30,9 @@ def pageRegister() -> rx.Component:
                 align_items="center",
                 width="100%",
             ),
-           
-            rx.box(
-                rx.foreach(FormState.users, user_box),
-                width="100%"
-            ),
-            formRegister(),
-            rx.divider(),
-            rx.heading("Results"),
-            # rx.text(FormRegisterState.form_data.to_string()),
+            
+            formRegister(),  
+
             width="100%",
             direction="column",
             spacing="4",

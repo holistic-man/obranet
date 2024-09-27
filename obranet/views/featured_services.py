@@ -61,7 +61,7 @@ def create_view_all_services_button():
     return rx.el.a(
         "Ver Todos los Servicios",
         href="#",
-        background_color="#2563EB",
+        # background_color="#2563EB",
         transition_duration="300ms",
         font_weight="600",
         _hover={
@@ -75,7 +75,7 @@ def create_view_all_services_button():
         padding_bottom="0.75rem",
         border_radius="9999px",
         box_shadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-        color="#ffffff",
+        # color="#ffffff",
         transition_property="background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
         transition_timing_function="cubic-bezier(0.4, 0, 0.2, 1)",
     )
@@ -91,29 +91,29 @@ def create_featured_services_section():
             font_size="1.875rem",
             line_height="2.25rem",
             text_align="center",
-            color="#1F2937",
+            # color="#1F2937",
             as_="h2",
         ),
         rx.box(
             create_service_card(
                 image_alt="Pintor trabajando en una pared",
-                image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/o5ekD5edTsg4eJ8PIzF0vfnhNmFU9UZhaB4ZAseLMawVfvp2E/out-0.webp",
-                service_name="Pintores",
+                image_src="/pintor.jpg",
+                service_name="Pintor",
             ),
             create_service_card(
-                image_alt="Plomero reparando una tubería",
-                image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/mDaVHsO8RFqhIZ4iLGd96FfPxsOR3PN4xzQkZfBzNnt6fN1mA/out-0.webp",
-                service_name="Plomeros",
+                image_alt="Gasfiter reparando una tubería",
+                image_src="/gasfiter.jpg",
+                service_name="Gasfiter",
             ),
             create_service_card(
-                image_alt="Electricista trabajando en un panel eléctrico",
-                image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/1B0pIsZ0VzZSGhL0ORLSwtAarJqI8lCJMXsmXFQi86iefmaTA/out-0.webp",
-                service_name="Electricistas",
+                image_alt="Maestro constructor arreglando el segundo piso de una casa",
+                image_src="/maestrogeneral.png",
+                service_name="Maestro Constructor",
             ),
             create_service_card(
-                image_alt="Jardinero cuidando plantas en un jardín",
-                image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/JsRveV3NtWXgYC7MMXhVWTjyRIZccxYgkFfe5Hj7N0t1fbqNB/out-0.webp",
-                service_name="Jardineros",
+                image_alt="Fumigador exterminando plagas",
+                image_src="/fumigador.jpg",
+                service_name="Fumigador",
             ),
             gap="2rem",
             display="grid",
@@ -165,7 +165,7 @@ def feature_services():
         rx.box(
             rx.box(
                 create_featured_services_section(),
-                background_color="#F3F4F6",
+                # background_color="#F3F4F6",
                 padding_top="4rem",
                 padding_bottom="4rem",
 

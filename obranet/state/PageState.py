@@ -1,10 +1,11 @@
-import reflex as rx
-from obranet.api.api import list_db
+# import reflex as rx
+# from obranet.api.api import list_db
 
 
-class PageState(rx.State):
+# class PageState(rx.State):
     
-    list_info:list
+#     list_info:list
 
-    async def list_tabla(self):
-        self.list_info = await list_db()
+#     async def list_tabla(self):
+#         self.list_info = await list_db()
+    

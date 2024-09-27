@@ -72,7 +72,7 @@ def cta():
                         cursor="pointer",
                         _hover={"background-color": "#1D4ED8"}
                     ),
-                    href=Route.REGISTER.value,
+                    href=Route.USER_REGISTER.value,
                     margin_bottom="1rem",
                 ),
                 rx.link(

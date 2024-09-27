@@ -20,7 +20,7 @@ def navbar() -> rx.Component:
                 rx.flex(
                     rx.image(
                         alt="Obranet Logo",
-                        src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/9b19UXt5DfX1HKBUL7bxcG3qTM6G7Nee4zMqyTpfbgTof3UbC/out-0.webp",
+                        src=Route.LOGO_OBRANET.value,
                         height="2.5rem",
                         margin_right="0.75rem",
                         width="2.5rem",
@@ -40,7 +40,7 @@ def navbar() -> rx.Component:
             ),
             rx.hstack(
                 navbar_link("Inicio", Route.INDEX.value),
-                navbar_link("Servicios", Route.REGISTER.value),
+                navbar_link("Servicios", Route.USER_SERVICES_LIST.value),
                 navbar_link("Nosotros", "/#"),
                 navbar_link("Blog", "/#"),
                 spacing="5",
@@ -60,7 +60,7 @@ def navbar() -> rx.Component:
                         size="3",
                         cursor="pointer"
                     ),
-                    href=Route.REGISTER.value
+                    href=Route.USER_REGISTER.value
                 ),
                 rx.drawer.root(
                     rx.drawer.trigger(
@@ -107,12 +107,15 @@ def navbar() -> rx.Component:
                                 ),
                                 rx.text(
                                     """
-                                    Texto de descripcion
+                                    Conectando a profesionales hábiles con quien 
+                                    necesite sus servicios para todos los proyectos
+                                    del hogar.
+
                                     """,
                                 ),
                                 rx.vstack(
-                                    navbar_link("Inicio", "/#"),
-                                    navbar_link("Servicios", "/#"),
+                                    navbar_link("Inicio", Route.INDEX.value),
+                                    navbar_link("Servicios", Route.USER_SERVICES_LIST.value),
                                     navbar_link("Nosotros", "/#"),
                                     navbar_link("Blog", "/#"),
                                     
@@ -122,7 +125,7 @@ def navbar() -> rx.Component:
                                             size="3",
                                             cursor="pointer"
                                         ),
-                                        href=Route.REGISTER.value
+                                        href=Route.USER_REGISTER.value
                                     ),
                                     # rx.hstack(
                                     #     # rx.button(
@@ -147,7 +150,10 @@ def navbar() -> rx.Component:
                             height="100%",
                             width="85%",
                             padding=styles.EMSize.LARGE.value,
-                            background = "white"
+                            background = rx.color_mode_cond(
+                                light="white",
+                                dark="black"
+                            )
                         )
                     ),
                     direction="left",

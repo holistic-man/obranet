@@ -16,9 +16,9 @@ def create_large_centered_icon(alt_text, icon_tag):
     )
 
 
-def create_colored_text(color, content):
+def create_text(content):
     """Create a text element with specified color and content."""
-    return rx.text(content, color=color)
+    return rx.text(content)
 
 
 def create_styled_heading(
@@ -48,8 +48,8 @@ def create_feature_box(
             margin_bottom="0.5rem",
             content=title,
         ),
-        create_colored_text(
-            color="#4B5563", content=description
+        create_text(
+            content=description
         ),
         text_align="center",
     )

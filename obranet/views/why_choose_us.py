@@ -27,9 +27,9 @@ def create_styled_heading(
     )
 
 
-def create_colored_text(color, content):
+def create_text(content):
     """Create a text element with specified color and content."""
-    return rx.text(content, color=color)
+    return rx.text(content)
 
 
 def create_info_box(title, description):
@@ -41,8 +41,8 @@ def create_info_box(title, description):
             margin_bottom="0.5rem",
             content=title,
         ),
-        create_colored_text(
-            color="#4B5563", content=description
+        create_text(
+            content=description
         ),
     )
 
@@ -51,10 +51,10 @@ def create_colored_icon(alt_text, icon_color, icon_tag):
     return rx.icon(
         alt=alt_text,
         tag=icon_tag,
-        height="2rem",
+        height="3rem",
         margin_right="1rem",
         color=icon_color,
-        width="2rem",
+        width="3rem",
     )
 
 
@@ -64,11 +64,11 @@ def create_why_choose_us_content():
             create_colored_icon(
                 alt_text="Verified Icon",
                 icon_color="#10B981",
-                icon_tag="circle_check_big",
+                icon_tag="clipboard-list",
             ),
             create_info_box(
-                title="Profesionales Verificados",
-                description="Todos los usuarios son examinados y se les verifica su experiencia para su tranquilidad.",
+                title="Variedad de Servicios",
+                description="Ofrecemos una amplia variedad de servicios enfocados trabajos para el hogar.",
             ),
             display="flex",
             align_items="flex-start",
@@ -90,11 +90,11 @@ def create_why_choose_us_content():
             create_colored_icon(
                 alt_text="Security Icon",
                 icon_color="#3B82F6",
-                icon_tag="shield",
+                icon_tag="clock",
             ),
             create_info_box(
-                title="Plataforma Segura",
-                description="Contactos y comunicaciones seguras para su protección.",
+                title="Simpleza y Rapidez",
+                description="Te ofrecemos acceso rápido y simple a los servicios que necesitas.",
             ),
             display="flex",
             align_items="flex-start",
@@ -133,7 +133,7 @@ def why_choose_us():
             padding_right="1.5rem",
         ),
         id="about-us",
-        background_color="#ffffff",
+        # background_color="#ffffff",
         padding_top="4rem",
         padding_bottom="4rem",
     )
