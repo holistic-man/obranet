@@ -40,9 +40,10 @@ def navbar() -> rx.Component:
             ),
             rx.hstack(
                 navbar_link("Inicio", Route.INDEX.value),
+                navbar_link("Nosotros", Route.ABOUT_US.value),
                 navbar_link("Servicios", Route.USER_SERVICES_LIST.value),
-                navbar_link("Nosotros", "/#"),
-                navbar_link("Blog", "/#"),
+                navbar_link("Contacto", Route.CONTACT.value),
+                # navbar_link("Blog", "/#"),
                 spacing="5",
                 display=["none", "none", "flex", "flex", "flex"],
             ),
@@ -115,9 +116,10 @@ def navbar() -> rx.Component:
                                 ),
                                 rx.vstack(
                                     navbar_link("Inicio", Route.INDEX.value),
-                                    navbar_link("Servicios", Route.USER_SERVICES_LIST.value),
-                                    navbar_link("Nosotros", "/#"),
-                                    navbar_link("Blog", "/#"),
+                                    navbar_link("Nosotros", Route.ABOUT_US.value),
+                                    navbar_link("Servicios", Route.USER_SERVICES_LIST.value),                                    
+                                    navbar_link("Contacto", Route.CONTACT.value),
+                                    # navbar_link("Blog", "/#"),
                                     
                                     rx.link(
                                         rx.button(

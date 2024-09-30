@@ -5,6 +5,8 @@ from obranet.pages.user_registration import user_registration
 from obranet.pages.user_services import user_services
 from obranet.pages.user_detail import user_detail
 from obranet.pages.demo import register
+from obranet.pages.about_us import about_us
+from obranet.pages.contact import contact
 from obranet.pages.demolist import register_list
 # from obranet.register.state import custom_backend_handler
 

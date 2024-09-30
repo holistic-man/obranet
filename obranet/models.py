@@ -5,6 +5,8 @@ import datetime
 # from datetime import datetime
 from sqlmodel import Field
 
+# from datetime import datetime, timezone
+
 
 class Registrado(rx.Model, table=True):
     name:str
@@ -33,7 +35,26 @@ class Registrado(rx.Model, table=True):
         ),
     )
 
-
+class Contact(rx.Model, table=True):
+    name: str
+    email: str
+    message: str
+    created_at: datetime.datetime = sqlmodel.Field(
+        default=None,
+        sa_column=sqlalchemy.Column(
+            "created_at",
+            sqlalchemy.DateTime(timezone=True),
+            server_default=sqlalchemy.func.now(),
+        ),
+    )
+    
+    def dict(self, *args, **kwargs) -> dict:
+        d = super().dict(*args, **kwargs)
+        d["created_at"] = self.created_at.replace(
+            microsecond=0
+        ).isoformat()
+        return d
+    
 
 # class User(rx.Model, table=True):
     

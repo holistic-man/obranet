@@ -1,4 +1,5 @@
 import reflex as rx 
+from obranet.routes import Route
 
 def header_content() -> rx.Component:
     return rx.box(
@@ -21,8 +22,8 @@ def header_content() -> rx.Component:
                 ),
                 rx.flex(
                     rx.el.a(
-                        "Contrata a obrero",
-                        href="#hire",
+                        "Contrata un servicio",
+                        href=Route.USER_SERVICES_LIST.value,
                         background_color="#ffffff",
                         border_width="2px",
                         border_color="#ffffff",
@@ -41,7 +42,7 @@ def header_content() -> rx.Component:
                     ),
                     rx.el.a(
                         "Ofrece tu servicio",
-                        href="#offer-services",
+                        href=Route.USER_REGISTER.value,
                         background_color="transparent",
                         border_width="2px",
                         border_color="#ffffff",

@@ -87,7 +87,7 @@ def cta():
                         cursor="pointer",
                         _hover={"background-color": "#047857"}
                     ),
-                    href="#"
+                    href=Route.USER_SERVICES_LIST.value,
                 ),
                 display="flex",
                 flex_direction=rx.breakpoints(

@@ -1,6 +1,6 @@
 import reflex as rx
 import asyncio
-from obranet.components.forms.formRegister import formRegister
+from obranet.components.forms import register_form
 
 def user_register():
     return rx.card(
@@ -31,11 +31,13 @@ def user_register():
                 width="100%",
             ),
             
-            formRegister(),  
+            register_form(),  
 
+            height="100%",
             width="100%",
             direction="column",
             spacing="4",
         ),
         size="3",
+        margin_y="4em"
     )

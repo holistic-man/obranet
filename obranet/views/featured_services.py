@@ -1,4 +1,5 @@
 import reflex as rx
+from obranet.routes import Route
 
 def create_responsive_image(alt_text, image_src):
     """Create a responsive image component with full width and height coverage."""
@@ -56,30 +57,6 @@ def create_service_card(image_alt, image_src, service_name):
     )
 
 
-def create_view_all_services_button():
-    """Create a styled button to view all services."""
-    return rx.el.a(
-        "Ver Todos los Servicios",
-        href="#",
-        # background_color="#2563EB",
-        transition_duration="300ms",
-        font_weight="600",
-        _hover={
-            "background-color": "#1D4ED8",
-            "box-shadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-        },
-        display="inline-block",
-        padding_left="2rem",
-        padding_right="2rem",
-        padding_top="0.75rem",
-        padding_bottom="0.75rem",
-        border_radius="9999px",
-        box_shadow="0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-        # color="#ffffff",
-        transition_property="background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
-        transition_timing_function="cubic-bezier(0.4, 0, 0.2, 1)",
-    )
-
 
 def create_featured_services_section():
     """Create the featured services section with a heading, service cards, and a view all button."""
@@ -126,7 +103,20 @@ def create_featured_services_section():
             ),
         ),
         rx.box(
-            create_view_all_services_button(),
+            rx.link(
+                rx.button(
+                    "Ver Todos los Servicios",
+                    transition_duration="300ms",
+                    padding_x="2rem",
+                    padding_y="0.75rem",
+                    font_weight="600",
+                    size="3",
+                    radius="large",
+                    cursor="pointer",
+                    # _hover={"background-color": "#047857"}
+                ),
+                href=Route.USER_SERVICES_LIST.value,
+            ),
             margin_top="3rem",
             text_align="center",
         ),

@@ -20,7 +20,9 @@ def user_registration() -> rx.Component:
     return rx.box(
         navbar(),
         rx.container(
-            user_register()
+            user_register(),
+            # padding_y="2rem"
         ),
+        rx.box(height="10vh"),
         footer(),
     )

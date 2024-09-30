@@ -1,5 +1,6 @@
 import reflex as rx
 from obranet.state.RegisterState import RegisterState
+import obranet.constants as const 
 
 def create_label(text):
     """Create a label element with specific styling."""
@@ -49,8 +50,8 @@ def create_text_input(input_id, placeholder_text):
         padding_bottom="0.75rem",
         border_radius="0.5rem",
         width="100%",
-        on_change=RegisterState.set_search,
-        value=RegisterState.search,
+        # on_change=RegisterState.set_search,
+        # value=RegisterState.search,
     )
 
 
@@ -282,8 +283,8 @@ def create_apply_filters_button():
         border_radius="0.5rem",
         color="#ffffff",
         transition_property="background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
-        on_click=RegisterState.apply_filters,
-        loading=RegisterState.is_loading
+        # on_click=RegisterState.apply_filters,
+        # loading=RegisterState.is_loading
     )
 
 
@@ -311,8 +312,8 @@ def create_clear_filters_button():
         border_radius="0.5rem",
         color="#374151",
         transition_property="background-color, border-color, color, fill, stroke, opacity, box-shadow, transform",
-        on_click=RegisterState.clear_filters,
-        loading=RegisterState.is_clearing_filters
+        # on_click=RegisterState.clear_filters,
+        # loading=RegisterState.is_clearing_filters
     )
 
 
@@ -339,44 +340,15 @@ def user_filter():
                     font_size="0.875rem",
                     line_height="1.25rem",
                 ),
-                rx.select.root(
-                    rx.select.trigger(
-                        placeholder="Todos los Servicios",
-                        width="100%",
-                    ),
-                    rx.select.content(
-                        rx.select.item(
-                            "Todos los servicios", 
-                            value="all"
-                        ),
-                        rx.select.item(
-                            "Pintor", 
-                            value="pintor"
-                        ),
-                        rx.select.item(
-                            "Gasfiter", 
-                            value="gasfiter"
-                        ),
-                        rx.select.item(
-                            "Jardinero", 
-                            value="jardinero"
-                        ),
-                        rx.select.item(
-                            "Electricista", 
-                            value="electricista"
-                        ),
-                        rx.select.item(
-                            "Otro (Detalla en la descripción)", 
-                            value="otro"
-                        ),
-                        side="bottom"
-                    ),
+                rx.select(
+                    const.SERVICES,
+                    placeholder="Todos los Servicios",
                     value=RegisterState.service_filter,
                     on_change=RegisterState.set_service_filter,
                     width="100%",
                     size="3",
-                    name="service",        
-                ),  
+                    name="service",  
+                ),
             ),
             
             rx.box(
@@ -389,56 +361,15 @@ def user_filter():
                     font_size="0.875rem",
                     line_height="1.25rem",
                 ),
-                rx.select.root(
-                    rx.select.trigger(
-                        placeholder="Selecciona la Comuna",
-                        width="100%",
-                    ),
-                    rx.select.content(
-                        rx.select.item(
-                            "Todas las comunas", 
-                            value="all_location"
-                        ),
-                        rx.select.item(
-                            "Santiago", 
-                            value="santiago"
-                        ),
-                        rx.select.item(
-                            "Independencia", 
-                            value="independencia"
-                        ),
-                        rx.select.item(
-                            "Recoleta", 
-                            value="recoleta"
-                        ),
-                        rx.select.item(
-                            "Huechuraba", 
-                            value="huechuraba"
-                        ),
-                        rx.select.item(
-                            "Conchalí", 
-                            value="conchali"
-                        ),
-                        side="bottom"
-                    ),
+                rx.select(
+                    const.COMUNAS,
+                    placeholder="Selecciona la comuna",
+                    name="location",
                     value=RegisterState.location_filter,
                     on_change=RegisterState.set_location_filter,
                     width="100%",
                     size="3",
-                    name="location",        
-                ),  
-                # rx.input(
-                #     rx.input.slot(
-                #         rx.icon(tag="search"),
-                #         position="right",
-                #     ),
-                #     placeholder="Ingresa comuna",
-                #     on_change=RegisterState.set_location,
-                #     value=RegisterState.location,
-                #     width="100%",
-                #     size="3",
-                #     name="location"
-                # )
+                ),
             ),
             rx.box(
                 rx.text(

@@ -1,5 +1,6 @@
 import reflex as rx
 from obranet.routes import Route
+import obranet.constants as const
 
 def footer_item(text: str, href: str) -> rx.Component:
     return rx.link(rx.text(text, size="3"), href=href)
@@ -10,11 +11,11 @@ def footer_items_1() -> rx.Component:
         rx.heading(
             "NAVEGACION", size="4", weight="bold", as_="h3"
         ),
-        footer_item("Inicio", "/#"),
-        footer_item("Nosotros", "/#"),
-        footer_item("Servicios", "/#"),
-        footer_item("Blog", "/#"),
-        footer_item("Contacto", "/#"),
+        footer_item("Inicio", Route.INDEX.value),
+        footer_item("Nosotros", Route.ABOUT_US.value),
+        footer_item("Servicios", Route.USER_SERVICES_LIST.value),
+        footer_item("Registro", Route.USER_REGISTER.value),
+        footer_item("Contacto", Route.CONTACT.value),
         spacing="4",
         text_align=["center", "center", "start"],
         flex_direction="column",
@@ -24,17 +25,19 @@ def footer_items_1() -> rx.Component:
 def footer_items_2() -> rx.Component:
     return rx.flex(
         rx.heading(
-            "RESOURCES", size="4", weight="bold", as_="h3"
+            "RECURSOS", size="4", weight="bold", as_="h3"
         ),
-        footer_item("Blog", "/#"),
-        footer_item("Case Studies", "/#"),
-        footer_item("Whitepapers", "/#"),
-        footer_item("Webinars", "/#"),
-        footer_item("E-books", "/#"),
+        footer_item("Blog", Route.BLOG.value),
+        footer_item("Video Tutoriales",Route.HOW_IT_WORKS.value),
+        footer_item("Preguntas Frecuentes",Route.Q_AND_A.value),
+        # footer_item("Webinars", "/#"),
+        # footer_item("E-books", "/#"),
         spacing="4",
         text_align=["center", "center", "start"],
         flex_direction="column",
     )
+
+
 
 
 def footer_items_3() -> rx.Component:
@@ -59,10 +62,10 @@ def social_link(icon: str, href: str) -> rx.Component:
 
 def socials() -> rx.Component:
     return rx.flex(
-        social_link("instagram", "/#"),
+        social_link("instagram", const.INSTAGRAM_URL),
         social_link("twitter", "/#"),
         social_link("facebook", "/#"),
-        social_link("linkedin", "/#"),
+        social_link("linkedin", const.LINKEDIN_URL),
         spacing="3",
         justify_content=["center", "center","center", "end"],
         width="100%",
@@ -110,7 +113,7 @@ def footer() -> rx.Component:
                     ],
                 ),
                 footer_items_1(),
-                # footer_items_2(),
+                footer_items_2(),
                 footer_items_3(),
                 justify="between",
                 spacing="6",
@@ -127,7 +130,7 @@ def footer() -> rx.Component:
                         border_radius="25%",
                     ),
                     rx.text(
-                        "© 2024 Obranet Group",
+                        "©2024 Obranet. Derechos reservados.",
                         size="3",
                         white_space="nowrap",
                         weight="medium",
