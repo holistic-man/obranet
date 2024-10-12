@@ -12,6 +12,7 @@ config = rx.Config(
     db_url=DATABASE_URL,
     cors_allowed_origins=[
         "https://obranet.vercel.app",
+        "https://obranet.cl",
         "http://localhost:3000",
         "http://localhost:3001"
     ]
