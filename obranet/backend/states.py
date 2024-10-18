@@ -232,8 +232,8 @@ class RegisterState(rx.State):
     dotenv.load_dotenv()
 
     # Configurar el cliente de Supabase
-    SUPABASE_URL = os.environ.get("SUPABASE_URL")
-    SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+    # SUPABASE_URL = os.environ.get("SUPABASE_URL")
+    # SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
     
     # @property
     # def supabase(self) -> Client:
