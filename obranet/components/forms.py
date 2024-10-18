@@ -157,6 +157,25 @@ def register_form() -> rx.Component:
             #     spacing="1",
             #     padding_bottom="1em"
             # ),
+            # rx.upload(
+            #     rx.vstack(
+            #         rx.button(
+            #             "Select File",
+            #             # color=color,
+            #             bg="white",
+            #             # border=f"1px solid {color}",
+            #         ),
+            #         rx.text(
+            #             "Drag and drop files here or click to select files"
+            #         ),
+            #     ),
+            #     id="upload1",
+            #     on_drop=RegisterState.handle_upload(
+            #         rx.upload_files(upload_id="upload1")
+            #     ),
+            #     # border=f"1px dotted {color}",
+            #     padding="5em",
+            # ),
             rx.form.submit(
                 rx.button(
                     "Registrar",

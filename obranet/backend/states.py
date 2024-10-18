@@ -228,7 +228,7 @@ class RegisterState(rx.State):
     success_registration_message: str = ""  # Lo mismo pero con el mensaje de exito
 
     img: list[str] = []  # Lista para almacenar las URLs de las imágenes
-    
+    img_url: str = ""
     # dotenv.load_dotenv()
 
     # Configurar el cliente de Supabase
@@ -306,6 +306,20 @@ class RegisterState(rx.State):
     #     upload_data = await file.read()
     #     photo_url = self.upload_image_to_supabase(file.filename, upload_data)
     #     self.img_url = photo_url
+
+    # async def handle_upload(self, files: list[rx.UploadFile]):
+    #     for file in files:
+    #         upload_data = await file.read()
+    #         outfile = rx.get_upload_dir() / file.filename
+
+    #         # Guarda el archivo
+    #         with outfile.open("wb") as file_object:
+    #             file_object.write(upload_data)
+
+    #         # Actualiza la variable img_url
+    #         self.img_url = rx.get_upload_url(file.filename)
+    #         print(file.filename)
+    #         print(self.img_url)
 
     # # Función para añadir los datos de un usuario a la BD
     def append_user(self, name, email, phone, location, service, description):#, photo):
