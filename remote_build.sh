@@ -2,7 +2,7 @@ python -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
-rm -rf public
+# rm -rf public
 reflex init
 API_URL=https://obranet.up.railway.app reflex export --frontend-only
 unzip frontend.zip -d public
