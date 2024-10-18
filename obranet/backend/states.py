@@ -6,7 +6,7 @@ from obranet.models import Registrado
 from obranet.routes import Route
 from sqlalchemy import select
 from sqlmodel import select, func, or_
-from supabase import create_client, Client
+# from supabase import create_client, Client
 import dotenv
 import os
 
@@ -229,19 +229,19 @@ class RegisterState(rx.State):
 
     img: list[str] = []  # Lista para almacenar las URLs de las imágenes
     
-    dotenv.load_dotenv()
+    # dotenv.load_dotenv()
 
-    # Configurar el cliente de Supabase
-    SUPABASE_URL = os.environ.get("SUPABASE_URL")
-    SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+    # # Configurar el cliente de Supabase
+    # SUPABASE_URL = os.environ.get("SUPABASE_URL")
+    # SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
     
-    @property
-    def supabase(self) -> Client:
-        """Cliente Supabase inicializado."""
-        if self.SUPABASE_URL is not None and self.SUPABASE_KEY is not None:
-            return create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
-        else:
-            raise Exception("Las credenciales de Supabase no están configuradas correctamente.")
+    # @property
+    # def supabase(self) -> Client:
+    #     """Cliente Supabase inicializado."""
+    #     if self.SUPABASE_URL is not None and self.SUPABASE_KEY is not None:
+    #         return create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
+    #     else:
+    #         raise Exception("Las credenciales de Supabase no están configuradas correctamente.")
     
     # Función para formatear el estado del mensaje de error al cargar la pagina de registro
     def reset_error_message(self):
@@ -251,58 +251,58 @@ class RegisterState(rx.State):
     def reset_success_message(self):
         self.success_registration_message = ""
 
-    def upload_image_to_supabase(self, file_name: str, file_data: bytes) -> str:
-        """Sube una imagen a Supabase y retorna la URL pública del archivo.
+    # def upload_image_to_supabase(self, file_name: str, file_data: bytes) -> str:
+    #     """Sube una imagen a Supabase y retorna la URL pública del archivo.
 
-        Args:
-            file_name: El nombre del archivo a subir.
-            file_data: Los datos binarios del archivo.
+    #     Args:
+    #         file_name: El nombre del archivo a subir.
+    #         file_data: Los datos binarios del archivo.
 
-        Returns:
-            La URL pública del archivo subido.
-        """
-        bucket_name = "obranet_photos"  # Nombre del bucket en Supabase
+    #     Returns:
+    #         La URL pública del archivo subido.
+    #     """
+    #     bucket_name = "obranet_photos"  # Nombre del bucket en Supabase
 
-        # Subir el archivo al bucket de Supabase
-        response = self.supabase.storage.from_(bucket_name).upload(file_name, file_data)
+    #     # Subir el archivo al bucket de Supabase
+    #     response = self.supabase.storage.from_(bucket_name).upload(file_name, file_data)
 
-        # Verificar si la respuesta contiene un error
-        if hasattr(response, 'error'):
-            raise Exception(f"Error al subir la imagen a Supabase: {response.error}")
+    #     # Verificar si la respuesta contiene un error
+    #     if hasattr(response, 'error'):
+    #         raise Exception(f"Error al subir la imagen a Supabase: {response.error}")
 
-        # Obtener la URL pública de la imagen
-        public_url = self.supabase.storage.from_(bucket_name).get_public_url(file_name)
+    #     # Obtener la URL pública de la imagen
+    #     public_url = self.supabase.storage.from_(bucket_name).get_public_url(file_name)
         
-        return public_url
+    #     return public_url
 
-    async def handle_upload(self, files: List[rx.UploadFile]):
-        if not files:
-            raise Exception("No files uploaded")
+    # async def handle_upload(self, files: List[rx.UploadFile]):
+    #     if not files:
+    #         raise Exception("No files uploaded")
 
-        # Obtener el directorio donde se guardan los archivos subidos temporalmente
-        upload_dir = rx.get_upload_dir()
+    #     # Obtener el directorio donde se guardan los archivos subidos temporalmente
+    #     upload_dir = rx.get_upload_dir()
 
-        # Procesar solo el primer archivo, dado que es una subida única
-        file = files[0]
+    #     # Procesar solo el primer archivo, dado que es una subida única
+    #     file = files[0]
 
-        # Guardar temporalmente el archivo subido en el directorio de subida
-        file_path = os.path.join(upload_dir, file.filename)
+    #     # Guardar temporalmente el archivo subido en el directorio de subida
+    #     file_path = os.path.join(upload_dir, file.filename)
 
-        # Leer los datos binarios del archivo subido
-        upload_data = await file.read()
+    #     # Leer los datos binarios del archivo subido
+    #     upload_data = await file.read()
 
-        with open(file_path, "wb") as f:
-            f.write(upload_data)
+    #     with open(file_path, "wb") as f:
+    #         f.write(upload_data)
 
-        # Subir el archivo a Supabase
-        photo_url = self.upload_image_to_supabase(file.filename, upload_data)
-        self.img_url = photo_url
-        # Guardar la URL en el estado
-        # self.img = [photo_url]
-        # print(f"Imagen subida: {photo_url}")
+    #     # Subir el archivo a Supabase
+    #     photo_url = self.upload_image_to_supabase(file.filename, upload_data)
+    #     self.img_url = photo_url
+    #     # Guardar la URL en el estado
+    #     # self.img = [photo_url]
+    #     # print(f"Imagen subida: {photo_url}")
 
-    # Función para añadir los datos de un usuario a la BD
-    def append_user(self, name, email, phone, location, service, description, photo):
+    # # Función para añadir los datos de un usuario a la BD
+    def append_user(self, name, email, phone, location, service, description):#, photo):
         with rx.session() as session:
             obj = Registrado(
                     name=name,
@@ -311,7 +311,7 @@ class RegisterState(rx.State):
                     location=location,
                     service=service,
                     description=description,
-                    photo=photo
+                    # photo=photo
                 )
             session.add(obj)
             session.commit()
@@ -329,10 +329,10 @@ class RegisterState(rx.State):
             user_location = form_data.get("location")
             user_service = form_data.get("service")
             user_description = form_data.get("description")
-            user_photo= self.img_url
+            # user_photo= self.img_url
 
             if user_name and user_email and user_phone and user_location and user_service and user_description:
-                self.append_user(user_name,user_email,user_phone,user_location,user_service,user_description, user_photo)
+                self.append_user(user_name,user_email,user_phone,user_location,user_service,user_description)#, user_photo)
                 yield
                 await asyncio.sleep(2)
                 # self.did_submit = False dsadsad

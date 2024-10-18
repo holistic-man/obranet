@@ -133,25 +133,25 @@ def register_form() -> rx.Component:
                         "line-height": "35px",
                     },
                 ),
-                rx.upload(
-                    rx.vstack(
-                        rx.button(
-                            "Seleccionar Archivo",
-                            color_scheme="gray",
-                            variant="surface",
-                            type="button",
-                        ),
-                        # rx.text("Arrastra y suelta archivos acá o clickea Selecionar Archivo"),
-                    ),
-                    border=None,
-                    id="upload2",
-                    multiple=False,  # Solo permitir la subida de un archivo
-                    accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},  # Limitar a imágenes PNG o JPEG
-                    on_drop=RegisterState.handle_upload(rx.upload_files(upload_id="upload2")),
-                    padding="0",
-                    name="photo",
+                # rx.upload(
+                #     rx.vstack(
+                #         rx.button(
+                #             "Seleccionar Archivo",
+                #             color_scheme="gray",
+                #             variant="surface",
+                #             type="button",
+                #         ),
+                #         # rx.text("Arrastra y suelta archivos acá o clickea Selecionar Archivo"),
+                #     ),
+                #     border=None,
+                #     id="upload2",
+                #     multiple=False,  # Solo permitir la subida de un archivo
+                #     accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},  # Limitar a imágenes PNG o JPEG
+                #     on_drop=RegisterState.handle_upload(rx.upload_files(upload_id="upload2")),
+                #     padding="0",
+                #     name="photo",
                     
-                ),
+                # ),
                 direction="column",
                 spacing="1",
                 padding_bottom="1em"
