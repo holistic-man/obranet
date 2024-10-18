@@ -8,5 +8,5 @@ __pycache__/
 alembic.ini
 alembic/
 assets/external/
-uploaded_files/
 caperta/
+uploaded_files/
