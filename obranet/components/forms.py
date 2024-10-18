@@ -152,16 +152,16 @@ def register_form() -> rx.Component:
                 #     name="photo",
                     
                 # ),
-                rx.vstack(
-                    rx.upload(
-                        rx.button("Seleccionar Archivo", color_scheme="gray", variant="surface"),
-                        multiple=False,
-                        accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},
-                        on_drop=RegisterState.handle_upload,
-                        id="upload2",
-                    ),
-                    rx.image(src=RegisterState.img_url, width="200px"),
-                ),
+                # rx.vstack(
+                #     rx.upload(
+                #         rx.button("Seleccionar Archivo", color_scheme="gray", variant="surface"),
+                #         multiple=False,
+                #         accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},
+                #         on_drop=RegisterState.handle_upload,
+                #         id="upload2",
+                #     ),
+                #     rx.image(src=RegisterState.img_url, width="200px"),
+                # ),
                 direction="column",
                 spacing="1",
                 padding_bottom="1em"
