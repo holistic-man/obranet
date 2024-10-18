@@ -6,7 +6,7 @@ from obranet.models import Registrado
 from obranet.routes import Route
 from sqlalchemy import select
 from sqlmodel import select, func, or_
-# from supabase import create_client, Client
+from supabase import create_client, Client
 import dotenv
 import os
 
@@ -229,19 +229,19 @@ class RegisterState(rx.State):
 
     img: list[str] = []  # Lista para almacenar las URLs de las imágenes
     
-    # dotenv.load_dotenv()
+    dotenv.load_dotenv()
 
-    # # Configurar el cliente de Supabase
-    # SUPABASE_URL = os.environ.get("SUPABASE_URL")
-    # SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
+    # Configurar el cliente de Supabase
+    SUPABASE_URL = os.environ.get("SUPABASE_URL")
+    SUPABASE_KEY = os.environ.get("SUPABASE_KEY")
     
-    # @property
-    # def supabase(self) -> Client:
-    #     """Cliente Supabase inicializado."""
-    #     if self.SUPABASE_URL is not None and self.SUPABASE_KEY is not None:
-    #         return create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
-    #     else:
-    #         raise Exception("Las credenciales de Supabase no están configuradas correctamente.")
+    @property
+    def supabase(self) -> Client:
+        """Cliente Supabase inicializado."""
+        if self.SUPABASE_URL is not None and self.SUPABASE_KEY is not None:
+            return create_client(self.SUPABASE_URL, self.SUPABASE_KEY)
+        else:
+            raise Exception("Las credenciales de Supabase no están configuradas correctamente.")
     
     # Función para formatear el estado del mensaje de error al cargar la pagina de registro
     def reset_error_message(self):
