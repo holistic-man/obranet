@@ -124,48 +124,39 @@ def register_form() -> rx.Component:
                 direction="column",
                 spacing="1",
             ),
-            rx.flex(
-                rx.text(
-                    "Foto de Perfil",
-                    style={
-                        "font-size": "15px",
-                        "font-weight": "500",
-                        "line-height": "35px",
-                    },
-                ),
-                rx.upload(
-                    rx.vstack(
-                        rx.button(
-                            "Seleccionar Archivo",
-                            color_scheme="gray",
-                            variant="surface",
-                            type="button",
-                        ),
-                        # rx.text("Arrastra y suelta archivos acá o clickea Selecionar Archivo"),
-                    ),
-                    border=None,
-                    id="upload2",
-                    multiple=False,  # Solo permitir la subida de un archivo
-                    accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},  # Limitar a imágenes PNG o JPEG
-                    on_drop=RegisterState.handle_upload(rx.upload_files(upload_id="upload2")),
-                    padding="0",
-                    name="photo",
+            # rx.flex(
+            #     rx.text(
+            #         "Foto de Perfil",
+            #         style={
+            #             "font-size": "15px",
+            #             "font-weight": "500",
+            #             "line-height": "35px",
+            #         },
+            #     ),
+            #     rx.upload(
+            #         rx.vstack(
+            #             rx.button(
+            #                 "Seleccionar Archivo",
+            #                 color_scheme="gray",
+            #                 variant="surface",
+            #                 type="button",
+            #             ),
+            #             # rx.text("Arrastra y suelta archivos acá o clickea Selecionar Archivo"),
+            #         ),
+            #         border=None,
+            #         id="upload2",
+            #         multiple=False,  # Solo permitir la subida de un archivo
+            #         accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},  # Limitar a imágenes PNG o JPEG
+            #         on_drop=RegisterState.handle_upload(rx.upload_files(upload_id="upload2")),
+            #         padding="0",
+            #         name="photo",
                     
-                ),
-                # rx.vstack(
-                #     rx.upload(
-                #         rx.button("Seleccionar Archivo", color_scheme="gray", variant="surface"),
-                #         multiple=False,
-                #         accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},
-                #         on_drop=RegisterState.handle_upload,
-                #         id="upload2",
-                #     ),
-                #     rx.image(src=RegisterState.img_url, width="200px"),
-                # ),
-                direction="column",
-                spacing="1",
-                padding_bottom="1em"
-            ),
+            #     ),
+                
+            #     direction="column",
+            #     spacing="1",
+            #     padding_bottom="1em"
+            # ),
             rx.form.submit(
                 rx.button(
                     "Registrar",
