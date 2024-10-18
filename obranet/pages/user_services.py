@@ -5,17 +5,16 @@ from obranet.routes import Route
 from obranet.components.navbar import navbar
 from obranet.components.footer import footer
 from obranet.views.user_list import user_list
-from obranet.state.RegisterState import RegisterState
-from obranet.models import Registrado
+from obranet.backend.states import UserListState
 
 
 @rx.page(
     route=Route.USER_SERVICES_LIST.value,   
-    title=utils.register_title,
-    # description=utils.register_description,
+    title=utils.services_title,
+    # description=utils.services_description,
     # image=utils.preview,
-    # meta=utils.register_meta
-    on_load=RegisterState.reset_pagination #QUIZAS SACAS EL RESET PAGINATION
+    # meta=utils.services_meta
+    on_load=UserListState.reset_pagination #QUIZAS SACAS EL RESET PAGINATION
 )
 def user_services() -> rx.Component:
     return rx.box(
@@ -28,8 +27,10 @@ def user_services() -> rx.Component:
             user_list(),
             # max_width="1600px",
             # center_content=True,
-            size="4"
+            size="4"    
+           
         ),
+        
         footer(),
     )
 

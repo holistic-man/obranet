@@ -1,31 +1,6 @@
 import reflex as rx
-from obranet.state.RegisterState import RegisterState
-from obranet.backend.states import ContactState
-# from obranet.components.forms import form_field
+from obranet.backend.states import ContactState, RegisterState
 import obranet.constants as const
-
-
-# def form_field(label: str, placeholder: str, type: str, name: str, error_message: str) -> rx.Component:
-#     return rx.form.field(
-#         rx.flex(
-#             rx.form.label(label),
-#             rx.form.control(
-#                 rx.input(
-#                     placeholder=placeholder, 
-#                     type=type,
-#                 ),
-#                 as_child=True,
-#             ),
-#             rx.form.message(
-#                 error_message,
-#                 match="typeMismatch",
-#             ),
-#             direction="column",
-#             spacing="1",
-#         ),
-#         name=name,
-#         width="100%",
-#     )
 
 
 def form_field(label: str, placeholder: str, type: str, name: str) -> rx.Component:
@@ -36,6 +11,7 @@ def form_field(label: str, placeholder: str, type: str, name: str) -> rx.Compone
                 rx.input(
                     placeholder=placeholder, 
                     type=type,
+                    required=True
                 ),
                 as_child=True,
             ),
@@ -63,6 +39,20 @@ def register_form() -> rx.Component:
                     "name",
                 ),
                 form_field(
+                    "Celular", 
+                    "+56 9 1234 5678", #ss
+                    "tel", 
+                    "phone"
+                ),
+                spacing="3",
+                flex_direction=[
+                    "column",
+                    "column",
+                    "row",
+                ],
+            ),
+            rx.flex(
+                form_field(
                     "Correo",
                     "ejemplo@gmail.com",
                     "email",
@@ -76,12 +66,7 @@ def register_form() -> rx.Component:
                 ],
             ),
             rx.flex(
-                form_field(
-                    "Celular", 
-                    "+56 9 1234 5678",
-                    "tel", 
-                    "phone"
-                ),
+                
                 rx.flex(
                     rx.text(
                         "Ubicación",
@@ -115,7 +100,7 @@ def register_form() -> rx.Component:
                     spacing="1",
                     width="100%",
                 ),  
-                spacing="4",
+                spacing="3",
                 flex_direction=[
                     "column",
                     "row",
@@ -139,16 +124,48 @@ def register_form() -> rx.Component:
                 direction="column",
                 spacing="1",
             ),
+            rx.flex(
+                rx.text(
+                    "Foto de Perfil",
+                    style={
+                        "font-size": "15px",
+                        "font-weight": "500",
+                        "line-height": "35px",
+                    },
+                ),
+                rx.upload(
+                    rx.vstack(
+                        rx.button(
+                            "Seleccionar Archivo",
+                            color_scheme="gray",
+                            variant="surface",
+                            type="button",
+                        ),
+                        # rx.text("Arrastra y suelta archivos acá o clickea Selecionar Archivo"),
+                    ),
+                    border=None,
+                    id="upload2",
+                    multiple=False,  # Solo permitir la subida de un archivo
+                    accept={"image/png": [".png"], "image/jpeg": [".jpg", ".jpeg"]},  # Limitar a imágenes PNG o JPEG
+                    on_drop=RegisterState.handle_upload(rx.upload_files(upload_id="upload2")),
+                    padding="0",
+                    name="photo",
+                    
+                ),
+                direction="column",
+                spacing="1",
+                padding_bottom="1em"
+            ),
             rx.form.submit(
                 rx.button(
                     "Registrar",
-                    loading=RegisterState.is_submmiting,
+                    loading=RegisterState.is_loading,
                     cursor="pointer",
                 ),
                 as_child=True,    
             ),
             rx.cond(
-                RegisterState.error_registration_message != "",
+                RegisterState.error_registration_message != "", 
                 rx.callout(
                     RegisterState.error_registration_message,
                     icon="triangle_alert",
@@ -282,43 +299,3 @@ def contact_form() -> rx.Component:
         size="3",
     )
 
-
-rx.form.root(
-    rx.flex(
-        rx.flex(
-            rx.form.field(
-                rx.flex(
-                    form_field(
-                        "Nombre Completo",
-                        "Nombre Completo",
-                        "text",
-                        "name",
-                    ),
-                    spacing="1",
-                    direction="column",
-                ),
-            ),
-        ),
-        rx.flex(
-            rx.form.field(
-                rx.flex(
-                    form_field(
-                        "Correo",
-                        "ejemplo@gmail.com",
-                        "email",
-                        "email",
-                    ),
-                    rx.form.message(
-                        "Por favor, ingrese un correo electrónico válido",
-                        match="typeMismatch",
-                    ),
-                    spacing="1",
-                    direction="column",
-                ),
-            ),
-        ),
-        # ... resto del código ...
-    ),
-    on_submit=ContactState.save_contact_form,
-    reset_on_submit=True
-)

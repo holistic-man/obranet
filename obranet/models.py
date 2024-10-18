@@ -4,6 +4,7 @@ import sqlalchemy
 import datetime
 # from datetime import datetime
 from sqlmodel import Field
+from typing import List, Optional
 
 # from datetime import datetime, timezone
 
@@ -15,6 +16,7 @@ class Registrado(rx.Model, table=True):
     location:str 
     service:str
     description:str
+    photo: Optional[str] = None
     
 
     created_ts: datetime.datetime = sqlmodel.Field(

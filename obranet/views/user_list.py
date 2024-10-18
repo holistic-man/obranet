@@ -1,7 +1,5 @@
 import reflex as rx
-import obranet.styles.styles as styles
-from obranet.routes import Route
-from obranet.state.RegisterState import RegisterState
+from obranet.backend.states import UserListState
 from obranet.models import Registrado
 from obranet.components.user_info import user_info
 from obranet.components.user_filter import user_filter
@@ -14,9 +12,9 @@ def user_list() -> rx.Component:
         rx.vstack(
             user_filter(),
             rx.cond(
-                RegisterState.is_loaded,
+                UserListState.is_loaded,
                 rx.box(
-                    rx.foreach(RegisterState.users, user_info),
+                    rx.foreach(UserListState.users, user_info),
                     gap="2rem",
                     display="grid",
                     grid_template_columns=rx.breakpoints(
@@ -26,6 +24,7 @@ def user_list() -> rx.Component:
                             "1024px": "repeat(3, minmax(0, 1fr))",
                         }
                     ),
+                    width="100%",
                 ),
 
                 rx.box(
@@ -389,14 +388,16 @@ def user_list() -> rx.Component:
             rx.hstack(
                 rx.button(
                     "Anterior",
-                    on_click=[RegisterState.prev_page, scroll_to_top],
-                    disabled=RegisterState.is_first_page,
+                    on_click=[UserListState.prev_page, scroll_to_top],
+                    disabled=UserListState.is_first_page,
+                    loading=UserListState.is_loading_prev
                 ),
-                rx.text(f"Página {RegisterState.page_number} / {RegisterState.total_pages}"),
+                rx.text(f"Página {UserListState.page_number} / {UserListState.total_pages}"),
                 rx.button(
                     "Siguiente",
-                    on_click=[RegisterState.next_page, scroll_to_top],
-                    disabled=RegisterState.is_last_page,
+                    on_click=[UserListState.next_page, scroll_to_top],
+                    disabled=UserListState.is_last_page,
+                    loading=UserListState.is_loading_next
                 ),
                 align="center",
                 justify="center",
@@ -404,7 +405,8 @@ def user_list() -> rx.Component:
                 padding_y="2em"
             ),
         ),
-        on_mount=RegisterState.load_entries,
+        width="100%",
+        on_mount=UserListState.load_entries,
     )
 
 

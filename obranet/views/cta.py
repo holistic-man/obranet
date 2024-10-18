@@ -49,18 +49,6 @@ def cta():
                 content="Únete hoy a nuestra comunidad de profesionales capacitados y clientes satisfechos."
             ),
             rx.flex(
-                # create_styled_button(
-                #     hover_style={"background-color": "#1D4ED8"},
-                #     bg_color="#2563EB",
-                #     href=Route.REGISTER.value,
-                #     content="Regístrate como profesional",
-                # ),
-                # create_styled_button(
-                #     hover_style={"background-color": "#047857"},
-                #     bg_color="#059669",
-                #     href="#find-service",
-                #     content="Encuentre proveedor de servicios",
-                # ),
                 rx.link(
                     rx.button(
                         "Registrate como profesional",

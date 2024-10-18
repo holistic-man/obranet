@@ -145,7 +145,7 @@ def create_contact_info_section():
             create_icon_with_text(
                 icon_alt="Phone",
                 icon_tag="phone",
-                text_content="+56 9 1234 5678",
+                text_content="+56 9 6646 8556",
             ),
             create_icon_with_text(
                 icon_alt="LinkedIn",

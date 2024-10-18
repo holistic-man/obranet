@@ -5,8 +5,8 @@ from obranet.routes import Route
 from obranet.components.navbar import navbar
 from obranet.components.footer import footer
 from obranet.views.user_register import user_register
-from obranet.state.RegisterState import RegisterState
-
+# from obranet.state.RegisterState import RegisterState
+from obranet.backend.states import RegisterState
 
 @rx.page(
     route=Route.USER_REGISTER.value,   

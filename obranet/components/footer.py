@@ -3,7 +3,10 @@ from obranet.routes import Route
 import obranet.constants as const
 
 def footer_item(text: str, href: str) -> rx.Component:
-    return rx.link(rx.text(text, size="3"), href=href)
+    return rx.link(
+        rx.text(text, size="3"), 
+        href=href
+    )
 
 
 def footer_items_1() -> rx.Component:
@@ -57,14 +60,18 @@ def footer_items_3() -> rx.Component:
 
 
 def social_link(icon: str, href: str) -> rx.Component:
-    return rx.link(rx.icon(icon), href=href)
+    return rx.link(
+        rx.icon(icon), 
+        href=href,
+        is_external=True
+    )
 
 
 def socials() -> rx.Component:
     return rx.flex(
         social_link("instagram", const.INSTAGRAM_URL),
-        social_link("twitter", "/#"),
-        social_link("facebook", "/#"),
+        # social_link("twitter", "/#"),
+        # social_link("facebook", "/#"),
         social_link("linkedin", const.LINKEDIN_URL),
         spacing="3",
         justify_content=["center", "center","center", "end"],

@@ -186,6 +186,13 @@ def create_hero_content():
             font_size="1.25rem",
             line_height="1.75rem",
         ),
+        # rx.center(
+        #     rx.image(
+        #         src="/grupo3.jpg",
+        #         width=["100%","100%","90%","70%","60%"]
+        #     ),
+        #     padding_top="2rem"
+        # ),
         width="100%",
         style=rx.breakpoints(
             {
@@ -374,28 +381,28 @@ def create_team_section():
                 # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/rv323SpuVm4kIVt71XeNNcBz4xwD9YfLQZtv4uhfZfMJEJGOB/out-0.webp",
                 image_src="/horacio.jpeg",
                 name="Horacio de la Fuente",
-                role="CEO & Co-founder",
+                role="Cofundador",
             ),
             create_team_member_card(
                 image_alt="Sebastian Apablaza, Ingeniero de Relaciones Exteriores",
                 # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/IhgBOqpze5z6TKdSRWwNdbFFreZJWSwL7B7O5R2heZjEiEDnA/out-0.webp",
-                image_src="/seba.PNG",
+                image_src="/seba.jpg",
                 name="Sebastian Apablaza",
-                role="COO",
+                role="Cofundador",
             ),
             create_team_member_card(
                 image_alt="Bastian Passteni, Ingeniero Informático, Analista de Datos, Automatizador de Procesos",
                 # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/6g0sDnfl1IXsMyUI7AViWreOs2Tczt8Qd0y2ppQpv9PCRihTA/out-0.webp",
                 image_src="/bastian.jpeg",
                 name="Bastian Passteni",
-                role="CMO",
+                role="Cofundador",
             ),
             create_team_member_card(
                 image_alt="Matías Salas, Ingeniero Informático, Emprendedor",
                 # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/dv5asfe80tpqxE4TKctAeDrgdGbpCe81pCqaUJ5s1KqJEJGOB/out-0.webp",
                 image_src="/matias.jpeg",
                 name="Matías Salas",
-                role="CTO & Co-founder",
+                role="Cofundador & Programador",
             ),
             gap="2rem",
             display="grid",
