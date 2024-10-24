@@ -31,4 +31,9 @@ def index() -> rx.Component:
         # create_how_it_works_section(),
         # create_featured_services_section(),
         # create_page()
+
+
+        rx.script(src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"),
+        rx.script(src="https://files.bpcontent.cloud/2024/10/24/13/20241024132712-KB4TE739.js")
+        
     )

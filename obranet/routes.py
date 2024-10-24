@@ -4,7 +4,7 @@ class Route(Enum):
     INDEX = "/"
     USER_REGISTER = "/registro"
     USER_SERVICES_LIST = "/servicios"
-    USER_DETAIL = "/servicios/[service]/[name]"
+    USER_DETAIL = "/servicios/[service_name]/[user_name]"
     ABOUT_US = "/nosotros"
     CONTACT = "/contacto"
     BLOG ="#"

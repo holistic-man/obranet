@@ -78,11 +78,11 @@ class UserListState(rx.State):
     
     @rx.var
     def service(self) -> str:
-        return self.router.page.params.get("service", "")
+        return self.router.page.params.get("service_name", "")
 
     @rx.var
     def name(self) -> str:
-        return self.router.page.params.get("name", "")
+        return self.router.page.params.get("user_name", "")
 
     def apply_filters(self):
         self.is_applying_filters = True
