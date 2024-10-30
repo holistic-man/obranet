@@ -314,8 +314,8 @@ def user_detail_content(user: Registrado):
         #     gap="1rem",
         #     padding_y="2rem"
         # ),
-        
-       
+        padding_y="5rem",
+        # height="70vh"
     )
 
 
