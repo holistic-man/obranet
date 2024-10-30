@@ -117,203 +117,203 @@ def user_detail_content(user: Registrado):
         ),
         
         # COMENTARIOS Y CALIFICACIONES
-        rx.box(
-            rx.box(
-                rx.flex(
-                    rx.heading(
-                        "Comentarios y calificaciones",
-                        font_weight="600",
-                        margin_bottom="1rem",
-                        font_size="1.25rem",
-                        line_height="1.75rem",
-                        as_="h2",
-                    ),
-                    display="flex",
-                    align_items="center",
-                    margin_bottom="1rem",
-                ),
-                rx.box(
-                    rx.flex(
-                        rx.image(
-                            src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/wlez7bzBYjVoQKsMR7g3GOBvjA1X9Ns9x9MJo0Zaef5Gz98mA/out-0.webp",
-                            alt="alt_text",
-                            height="2rem",
-                            margin_right="0.5rem",
-                            border_radius="9999px",
-                            width="2rem",
-                        ),
-                        rx.text.span("Nombre Usuario", font_weight="600"),
-                        rx.flex(
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            class_name="ml-auto",
-                            display="flex",
-                        ),
+        # rx.box(
+        #     rx.box(
+        #         rx.flex(
+        #             rx.heading(
+        #                 "Comentarios y calificaciones",
+        #                 font_weight="600",
+        #                 margin_bottom="1rem",
+        #                 font_size="1.25rem",
+        #                 line_height="1.75rem",
+        #                 as_="h2",
+        #             ),
+        #             display="flex",
+        #             align_items="center",
+        #             margin_bottom="1rem",
+        #         ),
+        #         rx.box(
+        #             rx.flex(
+        #                 rx.image(
+        #                     src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/wlez7bzBYjVoQKsMR7g3GOBvjA1X9Ns9x9MJo0Zaef5Gz98mA/out-0.webp",
+        #                     alt="alt_text",
+        #                     height="2rem",
+        #                     margin_right="0.5rem",
+        #                     border_radius="9999px",
+        #                     width="2rem",
+        #                 ),
+        #                 rx.text.span("Nombre Usuario", font_weight="600"),
+        #                 rx.flex(
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     class_name="ml-auto",
+        #                     display="flex",
+        #                 ),
                         
-                        # 
-                        display="flex",
-                        align_items="center",
-                        margin_bottom="0.5rem",
-                    ),
-                    rx.text(
-                        "Comentario de prueba solo para ver como se visualizaria un comentario en el perfil de un usuario en particular", 
-                        max_width="75ch"
-                    )
-                ),
-            ),
-            rx.divider(),
-            rx.box(
+        #                 # 
+        #                 display="flex",
+        #                 align_items="center",
+        #                 margin_bottom="0.5rem",
+        #             ),
+        #             rx.text(
+        #                 "Comentario de prueba solo para ver como se visualizaria un comentario en el perfil de un usuario en particular", 
+        #                 max_width="75ch"
+        #             )
+        #         ),
+        #     ),
+        #     rx.divider(),
+        #     rx.box(
               
-                rx.box(
-                    rx.flex(
-                        rx.image(
-                            src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/wlez7bzBYjVoQKsMR7g3GOBvjA1X9Ns9x9MJo0Zaef5Gz98mA/out-0.webp",
-                            alt="alt_text",
-                            height="2rem",
-                            margin_right="0.5rem",
-                            border_radius="9999px",
-                            width="2rem",
-                        ),
-                        rx.text.span("Nombre Usuario", font_weight="600"),
-                        rx.flex(
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            class_name="ml-auto",
-                            display="flex",
-                        ),
+        #         rx.box(
+        #             rx.flex(
+        #                 rx.image(
+        #                     src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/wlez7bzBYjVoQKsMR7g3GOBvjA1X9Ns9x9MJo0Zaef5Gz98mA/out-0.webp",
+        #                     alt="alt_text",
+        #                     height="2rem",
+        #                     margin_right="0.5rem",
+        #                     border_radius="9999px",
+        #                     width="2rem",
+        #                 ),
+        #                 rx.text.span("Nombre Usuario", font_weight="600"),
+        #                 rx.flex(
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     class_name="ml-auto",
+        #                     display="flex",
+        #                 ),
                         
-                        # 
-                        display="flex",
-                        align_items="center",
-                        margin_bottom="0.5rem",
-                    ),
-                    rx.text(
-                        "Comentario de prueba solo para ver como se visualizaria un comentario en el perfil de un usuario en particular", 
-                        max_width="75ch"
-                    )
-                ),
-            ),
-            rx.divider(),
-            rx.box(       
-                rx.box(
-                    rx.flex(
-                        rx.image(
-                            src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/wlez7bzBYjVoQKsMR7g3GOBvjA1X9Ns9x9MJo0Zaef5Gz98mA/out-0.webp",
-                            alt="alt_text",
-                            height="2rem",
-                            margin_right="0.5rem",
-                            border_radius="9999px",
-                            width="2rem",
-                        ),
-                        rx.text.span("Nombre Usuario", font_weight="600"),
-                        rx.flex(
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            rx.icon(
-                                tag="star",
-                                height="1.25rem",
-                                color="#FBBF24",
-                                width="1.25rem",
-                            ),
-                            class_name="ml-auto",
-                            display="flex",
-                        ),
+        #                 # 
+        #                 display="flex",
+        #                 align_items="center",
+        #                 margin_bottom="0.5rem",
+        #             ),
+        #             rx.text(
+        #                 "Comentario de prueba solo para ver como se visualizaria un comentario en el perfil de un usuario en particular", 
+        #                 max_width="75ch"
+        #             )
+        #         ),
+        #     ),
+        #     rx.divider(),
+        #     rx.box(       
+        #         rx.box(
+        #             rx.flex(
+        #                 rx.image(
+        #                     src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/wlez7bzBYjVoQKsMR7g3GOBvjA1X9Ns9x9MJo0Zaef5Gz98mA/out-0.webp",
+        #                     alt="alt_text",
+        #                     height="2rem",
+        #                     margin_right="0.5rem",
+        #                     border_radius="9999px",
+        #                     width="2rem",
+        #                 ),
+        #                 rx.text.span("Nombre Usuario", font_weight="600"),
+        #                 rx.flex(
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     rx.icon(
+        #                         tag="star",
+        #                         height="1.25rem",
+        #                         color="#FBBF24",
+        #                         width="1.25rem",
+        #                     ),
+        #                     class_name="ml-auto",
+        #                     display="flex",
+        #                 ),
                         
-                        # 
-                        display="flex",
-                        align_items="center",
-                        margin_bottom="0.5rem",
-                    ),
-                    rx.text(
-                        "Comentario de prueba solo para ver como se visualizaria un comentario en el perfil de un usuario en particular", 
-                        max_width="75ch"
-                    )
-                ),
-            ),
+        #                 # 
+        #                 display="flex",
+        #                 align_items="center",
+        #                 margin_bottom="0.5rem",
+        #             ),
+        #             rx.text(
+        #                 "Comentario de prueba solo para ver como se visualizaria un comentario en el perfil de un usuario en particular", 
+        #                 max_width="75ch"
+        #             )
+        #         ),
+        #     ),
             
-            display="flex",
-            flex_direction="column",
-            gap="1rem",
-            padding_y="2rem"
-        ),
+        #     display="flex",
+        #     flex_direction="column",
+        #     gap="1rem",
+        #     padding_y="2rem"
+        # ),
         
        
     )
