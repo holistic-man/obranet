@@ -73,3 +73,14 @@ contact_title = "Obranet | Contácto"
 #     {"name": "og:description", "content": contact_description},
 # ]
 # contact_meta.extend(_meta)
+
+# User Detail
+
+user_detail_title = "Obranet | Servicios"
+# user_detail_description = "Hola, mi nombre es Brais Moure. Soy ingeniero de software, desarrollador freelance full-stack y divulgador."
+
+# user_detail_meta = [
+#     {"name": "og:title", "content": user_detail_title},
+#     {"name": "og:description", "content": user_detail_description},
+# ]
+# user_detail_meta.extend(_meta)
