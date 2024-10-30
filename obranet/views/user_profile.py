@@ -10,15 +10,24 @@ def user_detail_content(user: Registrado):
     return rx.box(
         rx.flex(
             rx.box(
-                rx.image(
-                    src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/HOEHdxqoUaqkNRt08IcbeZEUaimaq3hqv0pim5Robf8xWeMnA/out-0.webp",
-                    alt=f"Imagen de perfil de {user.photo} en Obranet",
-                    height="12rem",
-                    margin_left="auto",
-                    margin_right="auto",
-                    object_fit="cover",
-                    border_radius="9999px",
-                    width="12rem",
+                rx.cond(
+                    user.photo,
+                    rx.image(
+                        src=user.photo,
+                        alt=f"Foto de perfil de {user.name} en Obranet",
+                        height="4rem",
+                        margin_right="1rem",
+                        border_radius="9999px",
+                        width="4rem",
+                    ),
+                    rx.image(
+                        src="/user_generico.jpeg",
+                        alt=f"Foto de perfil generico en Obranet",
+                        height="4rem",
+                        margin_right="1rem",
+                        border_radius="9999px",
+                        width="4rem",
+                    ),
                 ),
                 margin_bottom=rx.breakpoints(
                     {"0px": "1.5rem", "768px": "0"}

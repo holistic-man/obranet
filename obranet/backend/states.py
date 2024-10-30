@@ -170,15 +170,13 @@ class UserListState(rx.State):
     def get_user_detail(self):
         self.is_loaded = False
         self.user = None  # Resetea el usuario para evitar mostrar datos anteriores
-        yield
         with rx.session() as session:
-            result = session.exec(
+            self.user = session.exec(
                 Registrado.select().where(
                     (Registrado.service == self.service) & 
                     (Registrado.name == self.name)
                 )
-            ).one_or_none()
-            self.user = result
+            ).first()
         self.is_loaded = True
    
     
@@ -325,16 +323,17 @@ class RegisterState(rx.State):
     def append_user(self, name, email, phone, location, service, description):#, photo):
         with rx.session() as session:
             obj = Registrado(
-                    name=name,
-                    email=email,
-                    phone=phone,
-                    location=location,
-                    service=service,
-                    description=description,
+                    name=name.strip(),
+                    email=email.strip(),
+                    phone=phone.strip(),
+                    location=location.strip(),
+                    service=service.strip(),
+                    description=description.strip()
                     # photo=photo
                 )
             session.add(obj)
             session.commit()
+            session.refresh(obj)
 
     # Funcion asincrona para rescatar los datos del formulario de registro e intentar insertarlos en la BD con la funcion APPEND_USER()
     async def handle_submit(self, form_data: dict):
@@ -343,12 +342,12 @@ class RegisterState(rx.State):
         try:
             """Handle the form submit."""
             self.form_data = form_data
-            user_name = form_data.get("name")
-            user_email = form_data.get("email")
-            user_phone = form_data.get("phone")
-            user_location = form_data.get("location")
-            user_service = form_data.get("service")
-            user_description = form_data.get("description")
+            user_name = form_data.get("name", "").strip()
+            user_email = form_data.get("email", "").strip()
+            user_phone = form_data.get("phone", "").strip()
+            user_location = form_data.get("location", "").strip()
+            user_service = form_data.get("service", "").strip()
+            user_description = form_data.get("description", "").strip()
             # user_photo= self.img_url
 
             if user_name and user_email and user_phone and user_location and user_service and user_description:
