@@ -5,6 +5,8 @@ import obranet.utils as utils
 from obranet.components.navbar import navbar
 from obranet.components.footer import footer
 from obranet.views.user_profile import user_profile
+from obranet.components.developed_by import developed_by
+
 
 
 @rx.page(
@@ -19,6 +21,7 @@ def user_detail():
             user_profile()
         ),
         footer(),
+        developed_by()
     )
 
 

@@ -244,8 +244,8 @@ def create_company_history_section():
     return rx.flex(
         rx.center(
             rx.image(
-                alt="Equipo Obranet organizando ideas",
-                src="/fotogrupo.jpeg",
+                alt="Equipo Obranet",
+                src="/grupo2.jpg",
                 border_radius="0.5rem",
                 width="auto",
                 box_shadow="0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
@@ -378,39 +378,31 @@ def create_team_section():
         rx.box(
             create_team_member_card(
                 image_alt="Horacio de la Fuente, Ingeniero Comercial, Magister Marketing",
-                # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/rv323SpuVm4kIVt71XeNNcBz4xwD9YfLQZtv4uhfZfMJEJGOB/out-0.webp",
                 image_src="/horacio.jpeg",
                 name="Horacio de la Fuente",
                 role="Cofundador",
             ),
             create_team_member_card(
                 image_alt="Sebastian Apablaza, Ingeniero de Relaciones Exteriores",
-                # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/IhgBOqpze5z6TKdSRWwNdbFFreZJWSwL7B7O5R2heZjEiEDnA/out-0.webp",
                 image_src="/seba.jpg",
                 name="Sebastian Apablaza",
                 role="Cofundador",
             ),
             create_team_member_card(
                 image_alt="Bastian Passteni, Ingeniero Informático, Analista de Datos, Automatizador de Procesos",
-                # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/6g0sDnfl1IXsMyUI7AViWreOs2Tczt8Qd0y2ppQpv9PCRihTA/out-0.webp",
                 image_src="/bastian.jpeg",
                 name="Bastian Passteni",
                 role="Cofundador",
             ),
-            create_team_member_card(
-                image_alt="Matías Salas, Ingeniero Informático, Emprendedor",
-                # image_src="https://reflex-hosting-dev-flexgen.s3.us-west-2.amazonaws.com/replicate/dv5asfe80tpqxE4TKctAeDrgdGbpCe81pCqaUJ5s1KqJEJGOB/out-0.webp",
-                image_src="/matias.jpeg",
-                name="Matías Salas",
-                role="Cofundador & Programador",
-            ),
+            # Add more team members here...
+           
             gap="2rem",
             display="grid",
             grid_template_columns=rx.breakpoints(
                 {
                     "0px": "repeat(1, minmax(0, 1fr))",
                     "640px": "repeat(2, minmax(0, 1fr))",
-                    "1024px": "repeat(4, minmax(0, 1fr))",
+                    "1024px": "repeat(3, minmax(0, 1fr))",
                 }
             ),
         ),

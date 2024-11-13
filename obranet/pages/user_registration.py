@@ -7,6 +7,8 @@ from obranet.components.footer import footer
 from obranet.views.user_register import user_register
 # from obranet.state.RegisterState import RegisterState
 from obranet.backend.states import RegisterState
+from obranet.components.developed_by import developed_by
+
 
 @rx.page(
     route=Route.USER_REGISTER.value,   
@@ -25,4 +27,5 @@ def user_registration() -> rx.Component:
         ),
         rx.box(height="10vh"),
         footer(),
+        developed_by()
     )

@@ -6,6 +6,7 @@ from obranet.components.navbar import navbar
 from obranet.components.footer import footer
 from obranet.views.about_us.all import create_main_content
 from obranet.views.cta import cta
+from obranet.components.developed_by import developed_by
 
 @rx.page(
     route=Route.ABOUT_US.value,   
@@ -20,4 +21,5 @@ def about_us() -> rx.Component:
         create_main_content(),
         cta(),
         footer(),
+        developed_by()
     )

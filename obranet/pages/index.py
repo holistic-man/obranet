@@ -9,6 +9,8 @@ from obranet.views.how_it_works import how_it_works
 from obranet.views.featured_services import feature_services
 from obranet.views.why_choose_us import why_choose_us
 from obranet.views.cta import cta
+from obranet.components.developed_by import developed_by
+
 
 @rx.page(
     route=Route.INDEX.value,   
@@ -26,14 +28,5 @@ def index() -> rx.Component:
         why_choose_us(),
         cta(),
         footer(),
-        # navbar(),
-        # create_hero_container(),
-        # create_how_it_works_section(),
-        # create_featured_services_section(),
-        # create_page()
-
-
-        rx.script(src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"),
-        rx.script(src="https://files.bpcontent.cloud/2024/10/24/13/20241024132712-KB4TE739.js")
-        
+        developed_by()
     )
