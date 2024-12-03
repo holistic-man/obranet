@@ -245,7 +245,7 @@ def create_company_history_section():
         rx.center(
             rx.image(
                 alt="Equipo Obranet",
-                src="/grupo2.jpg",
+                src="/grupo2.JPG",
                 border_radius="0.5rem",
                 width="auto",
                 box_shadow="0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",

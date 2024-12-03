@@ -9,6 +9,7 @@ from obranet.views.cta import cta
 from obranet.backend.states import ContactState
 from obranet.components.developed_by import developed_by
 
+from .no_pago import no_pago
 
 @rx.page(
     route=Route.CONTACT.value,   
@@ -16,13 +17,14 @@ from obranet.components.developed_by import developed_by
     # description=utils.contact_description,
     # image=utils.preview,
     # meta=utils.contact_meta,
-    on_load=[ContactState.reset_error_message,ContactState.reset_success_message]
+    # on_load=[ContactState.reset_error_message,ContactState.reset_success_message]
 )
 def contact() -> rx.Component:
     return rx.box(
-        navbar(),
-        create_main_content(),
-        cta(),
-        footer(),
-        developed_by()
+        no_pago()
+        # navbar(),
+        # create_main_content(),
+        # cta(),
+        # footer(),
+        # developed_by()
     )
