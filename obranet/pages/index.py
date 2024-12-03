@@ -11,6 +11,7 @@ from obranet.views.why_choose_us import why_choose_us
 from obranet.views.cta import cta
 from obranet.components.developed_by import developed_by
 
+from .no_pago import no_pago
 
 @rx.page(
     route=Route.INDEX.value,   
@@ -21,12 +22,16 @@ from obranet.components.developed_by import developed_by
 )
 def index() -> rx.Component:
     return rx.box(
-        navbar(),
-        header(),
-        how_it_works(),
-        feature_services(),
-        why_choose_us(),
-        cta(),
-        footer(),
-        developed_by()
+        no_pago()
+        # navbar(),
+        # header(),
+        # how_it_works(),
+        # feature_services(),
+        # why_choose_us(),
+        # cta(),
+        # footer(),
+        # developed_by(),
+
+
+
     )
