@@ -20,10 +20,10 @@ from .no_pago import no_pago
 )
 def about_us() -> rx.Component:
     return rx.box(
-        no_pago()
-        # navbar(),
-        # create_main_content(),
-        # cta(),
-        # footer(),
-        # developed_by()
+        # no_pago()
+        navbar(),
+        create_main_content(),
+        cta(),
+        footer(),
+        developed_by()
     )

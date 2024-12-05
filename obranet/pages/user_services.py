@@ -16,18 +16,18 @@ from .no_pago import no_pago
     # description=utils.services_description,
     # image=utils.preview,
     # meta=utils.services_meta
-    # on_load=UserListState.reset_pagination #QUIZAS SACAS EL RESET PAGINATION
+    on_load=UserListState.reset_pagination #QUIZAS SACAS EL RESET PAGINATION
 )
 def user_services() -> rx.Component:
     return rx.box(
-        no_pago()
-        # navbar(),
-        # rx.container(
-        #     user_list(),
-        #     size="4"    
+        # no_pago()
+        navbar(),
+        rx.container(
+            user_list(),
+            size="4"    
            
-        # ),
-        # footer(),
-        # developed_by()
+        ),
+        footer(),
+        developed_by()
     )
 

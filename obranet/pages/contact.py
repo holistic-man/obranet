@@ -17,14 +17,14 @@ from .no_pago import no_pago
     # description=utils.contact_description,
     # image=utils.preview,
     # meta=utils.contact_meta,
-    # on_load=[ContactState.reset_error_message,ContactState.reset_success_message]
+    on_load=[ContactState.reset_error_message,ContactState.reset_success_message]
 )
 def contact() -> rx.Component:
     return rx.box(
-        no_pago()
-        # navbar(),
-        # create_main_content(),
-        # cta(),
-        # footer(),
-        # developed_by()
+        # no_pago()
+        navbar(),
+        create_main_content(),
+        cta(),
+        footer(),
+        developed_by()
     )

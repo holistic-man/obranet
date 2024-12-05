@@ -17,17 +17,17 @@ from .no_pago import no_pago
     # description=utils.register_description,
     # image=utils.preview,
     # meta=utils.register_meta
-    # on_load=[RegisterState.reset_error_message,RegisterState.reset_success_message]
+    on_load=[RegisterState.reset_error_message,RegisterState.reset_success_message]
 )
 def user_registration() -> rx.Component:
     return rx.box(
-        no_pago()
-        # navbar(),
-        # rx.container(
-        #     user_register(),
-        #     # padding_y="2rem"
-        # ),
-        # rx.box(height="10vh"),
-        # footer(),
-        # developed_by()
+        # no_pago()
+        navbar(),
+        rx.container(
+            user_register(),
+            # padding_y="2rem"
+        ),
+        rx.box(height="10vh"),
+        footer(),
+        developed_by()
     )

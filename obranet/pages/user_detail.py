@@ -12,17 +12,17 @@ from .no_pago import no_pago
 @rx.page(
         route=Route.USER_DETAIL.value, 
         title=utils.user_detail_title,
-        # on_load=UserListState.get_user_detail
+        on_load=UserListState.get_user_detail
 )
 def user_detail():
     return rx.box(
-        no_pago()
-        # navbar(),
-        # rx.container(
-        #     user_profile()
-        # ),
-        # footer(),
-        # developed_by()
+        # no_pago()
+        navbar(),
+        rx.container(
+            user_profile()
+        ),
+        footer(),
+        developed_by()
     )
 
 
