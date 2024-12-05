@@ -22,15 +22,15 @@ from .no_pago import no_pago
 )
 def index() -> rx.Component:
     return rx.box(
-        no_pago()
-        # navbar(),
-        # header(),
-        # how_it_works(),
-        # feature_services(),
-        # why_choose_us(),
-        # cta(),
-        # footer(),
-        # developed_by(),
+        # no_pago()
+        navbar(),
+        header(),
+        how_it_works(),
+        feature_services(),
+        why_choose_us(),
+        cta(),
+        footer(),
+        developed_by(),
 
 
 
